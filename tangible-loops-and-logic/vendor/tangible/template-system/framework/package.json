@@ -5,16 +5,26 @@
   "repository": "git@github.com:tangibleinc/framework.git",
   "type": "module",
   "scripts": {
-    "// Build": "",
+    "start": "wp-now start --blueprint=blueprint.dev.json",
     "dev": "roll dev",
     "build": "roll build",
     "format": "roll format",
+    "test": "roll run tests/index.ts",
     "version": "node version.js",
-    "subrepo": "git-subrepo"
+    "subrepo": "git-subrepo",
+    "-- End-to-end testing --": "https://playwright.dev/",
+    "e2e": "playwright test --config tests/playwright.config.js",
+    "e2e:install": "playwright install chromium",
+    "e2e:debug": "npm run e2e -- --debug",
+    "e2e:ui": "npm run e2e -- --ui"
   },
   "devDependencies": {
-    "@tangible/roller": "1.x",
-    "@tangible/git-subrepo": "1.x"
+    "@playwright/test": "^1.48.1",
+    "@tangible/git-subrepo": "^1.0.1",
+    "@tangible/now": "^1.1.3",
+    "@tangible/roller": "^2.1.4",
+    "@wordpress/e2e-test-utils-playwright": "^1.10.0",
+    "testra": "^2.1.4"
   },
   "prettier": {
     "semi": false,

@@ -1,5 +1,5 @@
 === Loops & Logic ===
-Stable tag: 4.1.5
+Stable tag: 4.1.7
 Requires at least: 6.0
 Tested up to: 6.5
 Requires PHP: 7.4
@@ -151,11 +151,19 @@ Everything will work with themes built according to WordPress standards.
 
 == Changelog ==
 
+= 4.1.7 =
+
+Release Date: 2024-11-21
+
+- Fix Gutenberg enqueue inside editor iframe: Register Template block dependencies
+  - [Block Editor: Enqueueing Assets in the Editor](https://developer.wordpress.org/block-editor/how-to-guides/enqueueing-assets-in-the-editor/#backward-compatibility-and-known-issues)
+- Optional object cache for parsed and preprocessed template posts; See admin settings
+
 = 4.1.5 =
 
 Release Date: 2024-08-31
 
-- Fix XSS vulerability when visiting admin settings page URL
+- Fix XSS vulnerability when visiting admin settings page URL
 
 = 4.1.4 =
 

@@ -25,6 +25,7 @@ export function createConfig(userConfig = {}) {
 
   const testSitePort = userConfig.port || 8881
   const testDir = userConfig.testDir || __dirname // path.join(cwd, 'tests/e2e')
+  const testMatch = userConfig.testMatch || '**/*.js'
 
   /**
    * Workaround because @wordpress/e2e-test-utils-playwright
@@ -76,13 +77,13 @@ export function createConfig(userConfig = {}) {
     // Custom
   
     testDir,
-    testMatch: '**/*.js',
+    testMatch,
     testIgnore: [
       'playwright.*.js',
     ],
     globalSetup: path.join(__dirname, 'setup.js'),
     webServer: {
-      command: `wp-now start --port ${testSitePort} --path ${testDir}`,
+      command: `wp-now start --port ${testSitePort} --path ${testDir} --skip-browser`,
       url: process.env.WP_BASE_URL,
       timeout: 120_000, // 120 seconds.
       reuseExistingServer: true,
