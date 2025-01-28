@@ -2,8 +2,11 @@
 /**
  * Plugin Name: Tangible Template System
  * Description: Template system shared by Tangible Blocks and Loops & Logic
- * Version: 2024.11.19
+ * Version: 2025.1.25
  * GitHub URI: TangibleInc/template-system
+ * Author: Team Tangible
+ * Author URI: https://teamtangible.com
+ * License: GPLv2 or later
  */
 use tangible\framework;
 use tangible\updater;
@@ -11,10 +14,11 @@ use tangible\updater;
 define('TANGIBLE_TEMPLATE_SYSTEM_IS_PLUGIN', true);
 
 $module_path = is_dir(
-  ($path = __DIR__ . '/vendor/tangible')
-) ? $path : __DIR__ . '/..';
+  ($path = __DIR__ . '/../../tangible') // Module
+) ? $path : __DIR__ . '/vendor/tangible'; // Plugin
 
-// require_once $module_path . '/framework/index.php';
+require_once $module_path . '/framework/index.php';
+require_once $module_path . '/fields/index.php';
 require_once $module_path . '/updater/index.php';
 require_once __DIR__ . '/index.php';
 

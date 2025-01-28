@@ -1,0 +1,37 @@
+{
+  "name": "@elandel/css",
+  "version": "2024.9.16",
+  "description": "Parse and render CSS with extensible syntax",
+  "type": "module",
+  "main": "index.ts",
+  "homepage": "https://github.com/tangibleinc/css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangibleinc/css.git"
+  },
+  "files": [
+    "postcss-map-get",
+    "postcss-minify",
+    "index.ts",
+    "license.txt",
+    "package.json",
+    "readme.md"
+  ],
+  "scripts": {
+    "test": "tsx tests/index.ts"
+  },
+  "dependencies": {
+    "postcss": "^8.4.49",
+    "postcss-advanced-variables": "^5.0.0",
+    "postcss-nested": "^7.0.2",
+    "postcss-scss": "^4.0.9",
+    "postcss-selector-parser": "^7.0.0",
+    "postcss-value-parser": "^4.2.0",
+    "sass": "^1.81.0",
+    "source-map": "^0.7.4"
+  },
+  "devDependencies": {
+    "testra": "^2.1.4",
+    "tsx": "^4.19.2"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "elandel",
+  "type": "module",
+  "version": "2024.9.16",
+  "description": "Cross-platform template language and authoring environment",
+  "homepage": "https://github.com/tangibleinc/elandel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangibleinc/elandel.git"
+  },
+  "main": "index.ts",
+  "workspaces": [
+    "css",
+    "editor",
+    "html",
+    "logic"
+  ],  
+  "files": [
+    "css",
+    "editor",
+    "html",
+    "!*/tests",
+    "logic",
+    "index.ts",
+    "license.txt",
+    "package.json",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace editor",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "release": "npm publish --access public"
+  },
+  "devDependencies": {}
+}

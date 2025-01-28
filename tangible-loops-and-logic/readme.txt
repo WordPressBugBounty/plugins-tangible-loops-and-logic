@@ -1,7 +1,7 @@
 === Loops & Logic ===
-Stable tag: 4.1.7
+Stable tag: 4.1.8
 Requires at least: 6.0
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -150,6 +150,14 @@ Everything will work with themes built according to WordPress standards.
 
 
 == Changelog ==
+
+= 4.1.8 =
+
+Release Date: 2025-01-28
+
+- Improve compatibility with PHP 8.4
+- Improve develop/build/test setup and workflow for plugin and modules
+- REST API: Improve compatibility with Checkview
 
 = 4.1.7 =
 
