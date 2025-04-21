@@ -8,11 +8,25 @@ template_system::$state->setting_fields = [
   [
     'name' => 'acf_template_field',
     'field_type' => 'checkbox',
-    'label' => 'Enable ACF Template field - Custom field with template editor. See <a href="https://docs.loopsandlogic.com/integrations/acf#template">documentation on ACF Template field type</a>.',
+    'label' => 'ACF Template field type (<a href="https://docs.loopsandlogic.com/integrations/acf#template">Documentation</a>)',
     'default_value' => false,
   ],
 
-  // Features in development
+  [
+    'name' => 'codemirror_6_elementor',
+    'field_type' => 'checkbox',
+    'label' => 'Elementor integration: Use new template editor based on CodeMirror 6',
+    'default_value' => true,
+  ],
+
+  [
+    'name' => 'object_cache_processed_template_post',
+    'field_type' => 'checkbox',
+    'label' => 'Object cache for parsed and pre-processed template posts',
+    'default_value' => true,
+  ],
+
+  // Features in development (beta/experimental)
   [
     'name' => 'atomic_css',
     'field_type' => 'checkbox',
@@ -24,34 +38,44 @@ template_system::$state->setting_fields = [
   [
     'name' => 'codemirror_6',
     'field_type' => 'checkbox',
-    'label' => 'CodeMirror 6: Enable the new editor for Elementor and Beaver Builder, where it\'s not ready yet.',
+    'label' => 'Beaver Builder integration: Use new template editor based on CodeMirror 6 (Not working because Beaver\'s lightbox CSS breaks editor styles)',
     'beta' => true,
-
-    // TODO: Switch default to true when new editor is ready
-    'default_value' => false,
+    'default_value' => false, // TODO: Switch default to true when new editor is ready
   ],
 
   [
     'name' => 'content',
     'field_type' => 'checkbox',
-    'label' => 'Content structure templates: Post types, field groups, taxonomies - See <i>Tangible -> Content</i>',
+    'label' => 'Content structure templates: Post types, field groups, taxonomies',
     'default_value' => false,
     'beta' => true,
-    'reload' => true,
+    'reload' => true, // Show new admin menu item
   ],
 
   [
     'name' => 'form',
     'field_type' => 'checkbox',
     'label' => 'Form templates and field types',
-    'beta' => true,
     'default_value' => false,
+    'beta' => true,
+    'reload' => true, // Show new admin menu item
+  ],
+
+/*
+
+  [
+    'name' => 'views',
+    'field_type' => 'checkbox',
+    'label' => 'Views: Integrated authoring environment for all template types - See <i>Tangible -> Views</i>',
+    'default_value' => false,
+    'beta' => true,
+    'reload' => true,
   ],
 
   [
-    'name' => 'object_cache_processed_template_post',
+    'name' => 'html_streaming_processor',
     'field_type' => 'checkbox',
-    'label' => 'Object cache for parsed and pre-processed template posts (Experimental)',
+    'label' => 'New HTML streaming processor for better performance and memory usage',
     'default_value' => false,
     'beta' => true,
   ],
@@ -66,14 +90,6 @@ template_system::$state->setting_fields = [
   ],
 
   [
-    'name' => 'standard_attributes',
-    'field_type' => 'checkbox',
-    'label' => 'Standard attributes: Convert minus "-" in attribute name to underscore "_" when passed to dynamic tags. Some tags also support standard attribute *values*, for example, query parameters or field names where underscore is expected.',
-    'beta' => true,
-    'default_value' => false,
-  ],
-
-  [
     'name' => 'theme_templates',
     'field_type' => 'checkbox',
     'label' => 'Theme templates and template JSON support',
@@ -81,14 +97,8 @@ template_system::$state->setting_fields = [
     'default_value' => false,
   ],
 
-  [
-    'name' => 'view',
-    'field_type' => 'checkbox',
-    'label' => 'View: Integrated authoring environment for all template types - See <i>Tangible -> View</i>',
-    'default_value' => false,
-    'beta' => true,
-    'reload' => true,
-  ],
+*/
+
 ];
 
 function get_setting_fields() {

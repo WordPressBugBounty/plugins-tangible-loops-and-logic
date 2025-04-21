@@ -1,19 +1,20 @@
 <?php
 /**
- * Views - Unified interface to edit and manage all template types, libraries, assets.
+ * View - Unified interface to edit and manage all template types, libraries, assets.
  */
 namespace tangible\template_system;
 
+use tangible\framework;
 use tangible\template_system;
-use tangible\template_system\views;
+use tangible\template_system\view;
 
-class views {
+class view {
   static $state;
 }
 
-views::$state = (object) [
+view::$state = (object) [
   'version' => template_system::$state->version,
-  'url' => untrailingslashit( plugins_url('/', __FILE__) ),
+  'url' => framework\module_url( __FILE__ ),
 ];
 
 require_once __DIR__ . '/admin.php';

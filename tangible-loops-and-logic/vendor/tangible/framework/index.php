@@ -1,6 +1,6 @@
 <?php
 namespace tangible;
-use tangible\framework as framework;
+use tangible\framework;
 
 if (!class_exists('tangible\\framework')) {
   class framework {
@@ -11,24 +11,28 @@ if (!class_exists('tangible\\framework')) {
 
 // Load Date module early since it has its own loader
 require_once __DIR__ . '/date/index.php';
+require_once __DIR__ . '/utils/index.php';
 
 (include __DIR__ . '/module-loader.php')(new class {
 
   public $name = 'tangible_framework';
-  public $version = '20250125';
+  public $version = '20250415';
 
   function load() {
 
     framework::$state->version = $this->version;
     framework::$state->path = __DIR__;
-    framework::$state->url = untrailingslashit(plugins_url('/', __FILE__));
 
-    // Load this first so others can use tangible\see()
+    // Load these first so others can use tangible\see() and module_url()
     require_once __DIR__ . '/log/index.php';
+    require_once __DIR__ . '/utils/index.php';
 
+    framework::$state->url = framework\module_url(__FILE__);
+  
     require_once __DIR__ . '/admin/index.php';
     require_once __DIR__ . '/ajax/index.php';
     require_once __DIR__ . '/api/index.php';
+    require_once __DIR__ . '/design/index.php';
     require_once __DIR__ . '/file-system/index.php';
     require_once __DIR__ . '/format/index.php';
     require_once __DIR__ . '/hjson/index.php';

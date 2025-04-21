@@ -13,6 +13,7 @@
  */
 
 namespace tangible\template_system\module_loader;
+use tangible\framework;
 use tangible\template_system;
 use tangible\template_system\module_loader;
 
@@ -35,7 +36,8 @@ function enqueue() {
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\register', 0 );
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\register', 0 );
-
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\register', 0 );
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\register', 0 );
 
 $html->module_loader_script_registered = false;
 
@@ -43,7 +45,7 @@ $html->register_module_loader_script = function() use ( $html ) {
 
   $html->module_loader_script_registered = true;
 
-  $url = untrailingslashit(plugins_url('/', __FILE__)) . '/build';
+  $url = framework\module_url( __FILE__ ) . '/build';
   $version = template_system::$state->version;
 
   wp_register_script(
@@ -56,6 +58,8 @@ $html->register_module_loader_script = function() use ( $html ) {
 
 add_action( 'wp_enqueue_scripts', $html->register_module_loader_script, 0 );
 add_action( 'admin_enqueue_scripts', $html->register_module_loader_script, 0 );
+add_action( 'enqueue_block_assets', $html->register_module_loader_script, 0 );
+add_action( 'enqueue_block_editor_assets', $html->register_module_loader_script, 0 );
 
 $html->dynamic_modules = [
   // name: { assets: string | string[], depend?: [] }
@@ -165,5 +169,6 @@ $html->enqueue_module_loader_data = function() use ( $html ) {
 };
 
 add_action( 'wp_enqueue_scripts', $html->enqueue_module_loader_data, 99 );
-
 add_action( 'admin_enqueue_scripts', $html->enqueue_module_loader_data, 99 );
+add_action( 'enqueue_block_assets', $html->enqueue_module_loader_data, 99 );
+add_action( 'enqueue_block_editor_assets', $html->enqueue_module_loader_data, 99 );

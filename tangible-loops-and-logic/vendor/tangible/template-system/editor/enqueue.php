@@ -45,12 +45,17 @@ function enqueue_editor() {
 
     $tags = []; // &$language_definition['tags'];
 
-    $tags['ContentType'] = [ 'closed' => true ];
+    foreach ([
+      'LocationRule',
+    ] as $key) {
+      $tags[ $key ] = [ 'closed' => true ];
+    }
 
     foreach ([
+      'ContentType',
       'FieldGroup',
       'Field',
-      'LocationRule',
+      'Key',
       'LocationRuleGroup',
       'Layout',
       'Taxonomy'
@@ -80,6 +85,15 @@ function enqueue_editor() {
     'Section' => [ 'closed' => false ],
     'Control' => [ 'closed' => true ],  
   ];
+
+  // Gather closed tags for code formatter
+  $language_definition['closedTags'] = [];
+  $all_tags = array_merge($language_definition['tags'], $language_definition['controlTags']);
+  foreach ($all_tags as $name => $definition) {
+    if ($definition['closed'] ?? false) {
+      $language_definition['closedTags'] []= $name;
+    }
+  }
 
   wp_localize_script(
     'tangible-template-system-editor',
