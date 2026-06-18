@@ -47,8 +47,9 @@ $documentation->register_section('fields', [
       'title' => 'Accordion',
       'path'  => 'fields/accordion',
       'fields'=> [
-        'accordion'             => [ 'json' => true ],
-        'accordion-with-switch' => [ 'json' => true ]
+        'accordion'                 => [ 'json' => true ],
+        'accordion-open-by-default' => [ 'json' => true ],
+        'accordion-with-switch'     => [ 'json' => true ]
       ]
     ],
     'alignment_matrix' => [
@@ -303,7 +304,8 @@ $documentation->register_section('repeater', [
       'title' => 'Advanced',
       'path'  => 'repeater/advanced',
       'fields'=> [
-        'repeater_advanced' => [ 'json' => true ],
+        'repeater_advanced'           => [ 'json' => true ],
+        'repeater_advanced_use_bulk'  => [ 'json' => true ],
       ]
     ],
     'bare' => [
@@ -453,6 +455,11 @@ $documentation->register_section('dependent-attributes', [
         'dependent-color-picker' => [],
         'dependent-attribute-repeater' => [ 'json' => true ]
       ]
+    ],
+    'callbacks' => [
+      'title' => 'Callbacks',
+      'path'  => 'dependent-attributes/callbacks',
+      'fields'=> []
     ]
   ]
 ]);
