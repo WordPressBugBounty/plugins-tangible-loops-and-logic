@@ -85,6 +85,7 @@ $fields->format_args = function(
       break;
 
     case 'list':
+      $args = $fields->format_value($args, 'direct_selection', 'directSelection');
       $args = $fields->format_value($args, 'use_visibility', 'useVisibility');
       // Fallthrough
     case 'combo_box':
@@ -107,6 +108,9 @@ $fields->format_args = function(
       }
       $args = $fields->format_value($args, 'mime_types', 'mimeTypes');
       $args = $fields->format_value($args, 'max_upload', 'maxUpload');
+      $args = $fields->format_value($args, 'max_upload_text', 'maxUploadText');
+      $args = $fields->format_value($args, 'button_text', 'buttonText');
+      $args = $fields->format_value($args, 'upload_text', 'uploadText');
       break;
 
     case 'repeater':
