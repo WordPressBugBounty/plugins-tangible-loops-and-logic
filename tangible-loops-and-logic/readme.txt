@@ -1,7 +1,7 @@
-=== Loops & Logic ===
-Stable tag: 4.3.0
+=== Tangible: Loops & Logic ===
+Stable tag: 4.3.2
 Requires at least: 6.0
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -150,6 +150,22 @@ Everything will work with themes built according to WordPress standards.
 
 
 == Changelog ==
+
+= 4.3.2 =
+
+Release Date: 2026-09-17
+
+- Math tag: Fix fatal error on wrong number of function arguments
+- Security: Fields - Fix XSS in ajax error response (CVE-2026-82123)
+
+= 4.3.1 =
+
+Release Date: 2026-09-11
+
+- Admin: Welcome notice - Add nonce verification when dismissing
+- WordPress:
+  - Update Tested up to version to 7.1
+  - Make sure plugin meets required standards
 
 = 4.3.0 =
 

@@ -3,22 +3,24 @@
  * Plugin Name: Tangible: Loops & Logic
  * Plugin URI: https://loopsandlogic.com/
  * Description: A template system with content type loops and conditions.
- * Version: 4.3.0
+ * Version: 4.3.2
  * GitHub URI: TangibleInc/loops-and-logic
  * Author: Team Tangible
  * Author URI: https://teamtangible.com
  * License: GPLv2 or later
  */
 
-define( 'TANGIBLE_LOOPS_AND_LOGIC_VERSION', '4.3.0' );
+defined( 'ABSPATH' ) or die();
 
-$module_path = is_dir(
-  ($path = __DIR__ . '/../../tangible') // Module
-) ? $path : __DIR__ . '/vendor/tangible'; // Plugin
+define( 'TANGIBLE_LOOPS_AND_LOGIC_VERSION', '4.3.2' );
 
-require_once $module_path . '/framework/index.php';
-require_once $module_path . '/template-system/index.php';
-require_once $module_path . '/fields/index.php';
+$tangible_loops_and_logic_path = is_dir( __DIR__ . '/../../tangible' )
+  ? __DIR__ . '/../../tangible' // Module
+  : __DIR__ . '/vendor/tangible'; // Plugin
+
+require_once $tangible_loops_and_logic_path . '/framework/index.php';
+require_once $tangible_loops_and_logic_path . '/template-system/index.php';
+require_once $tangible_loops_and_logic_path . '/fields/index.php';
 
 /**
  * Get plugin instance
